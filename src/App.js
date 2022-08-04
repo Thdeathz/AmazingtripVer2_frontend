@@ -1,23 +1,28 @@
-import logo from '~/logo.svg';
-import '~/App.css';
+import { useEffect, useState } from "react";
+import userApi from "./api/userApi";
 
 function App() {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const fetchUserList = async () => {
+      const res = await userApi.getAll();
+      setUserData(res.data);
+    }
+
+    fetchUserList();
+  }, [])
+  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>AmazingTrip web Ver 2</h1>
+      {userData?.map((each, index) => (
+        <div key={index}>
+          <p>{each.nickname}</p>
+          <br />
+        </div>
+      ))}
     </div>
   );
 }
