@@ -1,7 +1,7 @@
 import axiosClient from "./axiosClient";
 
 const userApi = {
-    getAll: () => {
+    getAllUserData: () => {
         const url = `/data`;
         return axiosClient.get(url);
     }
