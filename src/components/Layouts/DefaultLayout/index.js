@@ -1,10 +1,15 @@
 
+import { Footer, Header } from '../components';
+
 function DefaultLayout({ children }) {
     return (
-        <div style={{ display: 'relative' }}>
-            <h1>Layout</h1>
-            {children}
-        </div>
+        <>
+            <Header/>
+                <div style={{ display: 'relative' }}>
+                    {children}
+                </div>
+            <Footer/>
+        </>
     );
 }
 

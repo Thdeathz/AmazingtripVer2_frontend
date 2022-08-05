@@ -1,11 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
-import TestPage from './pages/TestPage';
+import {
+    LandingPage,
+    LoginPage
+} from './pages';
+
 
 function Test() {
 
     return (
         <Routes>
-            <Route path='' element={<TestPage/>}/>
+            <Route path='' element={<LandingPage/>}/>
+            <Route path='login' element={<LoginPage/>}/>
         </Routes>
     );
 }

@@ -3,7 +3,7 @@ import userApi from "~/api/userApi";
 
 const testSlice = createSlice({
     name: 'test',
-    initialState: { status: '', data: [] },
+    initialState: { status: 'idle', data: [] },
     reducers: {
 
     },

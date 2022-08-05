@@ -1,18 +1,17 @@
-//Layout
-import { 
-    DefaultLayout, 
-} from '~/components/Layouts';
-
 // Pages
+import {
+    Test,
+    Guest
+} from '~/features';
 
 
 // Provider
 
-import Test from '~/features/Test';
 
 // Public Page
 const publicRoutes = [
-    { path: '/test/*', component: Test, layout: DefaultLayout },
+    { path: '/test/*', component: Test},
+    { path: '/*', component: Guest },
 
 ];
 
