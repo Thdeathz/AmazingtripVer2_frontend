@@ -1,7 +1,8 @@
 // Pages
 import {
     Test,
-    Guest
+    Guest,
+    Auth,
 } from '~/features';
 
 
@@ -12,6 +13,7 @@ import {
 const publicRoutes = [
     { path: '/test/*', component: Test},
     { path: '/*', component: Guest },
+    { path: '/login', component: Auth },
 
 ];
 

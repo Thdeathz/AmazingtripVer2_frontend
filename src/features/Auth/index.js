@@ -1,16 +1,16 @@
 import { Routes, Route } from 'react-router-dom';
 import {
-    LandingPage,
+    LoginPage,
 } from './pages';
 
 
-function Test() {
+function Auth() {
 
     return (
         <Routes>
-            <Route path='' element={<LandingPage/>}/>
+            <Route path='' element={<LoginPage/>}/>
         </Routes>
     );
 }
 
-export default Test;
+export default Auth;

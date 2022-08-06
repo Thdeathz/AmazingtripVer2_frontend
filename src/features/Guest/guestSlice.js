@@ -5,7 +5,7 @@ const guestSlice = createSlice({
     name: 'guest',
     initialState: { status: 'idle', data: {} },
     reducers: {
-
+        
     },
     extraReducers: (builder) => {
         builder
