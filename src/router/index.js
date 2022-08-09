@@ -2,7 +2,7 @@
 import {
     Test,
     Guest,
-    Auth,
+    User,
 } from '~/features';
 
 
@@ -13,12 +13,10 @@ import {
 const publicRoutes = [
     { path: '/test/*', component: Test},
     { path: '/*', component: Guest },
-    { path: '/login', component: Auth },
-
 ];
 
 const privateRoutes = [
-    
+    { path: '/user/*', component: User}
 
 ];
 
