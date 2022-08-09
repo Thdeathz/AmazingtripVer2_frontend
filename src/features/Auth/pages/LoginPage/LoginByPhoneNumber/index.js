@@ -37,8 +37,8 @@ function LoginByPhoneNumber() {
 		
 		try {
 			const userData = await login(formData).unwrap();
-			console.log(userData);
-			dispatch(setCredentials({...userData, user: userData.role}));
+			dispatch(setCredentials({...userData, user: userData.user}));
+			navigate('/user');
 		} catch (error) {
 			console.log('Toang meo chay r loi cc: ', error);
 		}

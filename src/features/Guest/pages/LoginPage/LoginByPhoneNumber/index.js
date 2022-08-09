@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect} from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './LoginByPhoneNumber.module.scss';
-import { useDispatch } from 'react-redux';
-import { processLogin } from '~/features/Guest/guestSlice';
+import { setCredentials } from '~/features/Auth/authSlice';
+import { useLoginMutation } from '~/features/Auth/authApiSlice';
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +18,7 @@ function LoginByPhoneNumber() {
 
 	const [errMsg, setErrMsg] = useState('');
 	const [showPwd, setShowPwd] = useState(false);
+	const [login, {isLoading}] = useLoginMutation();
 
 	const [formData, setFormData] = useState({
         phone: "",
@@ -31,10 +32,16 @@ function LoginByPhoneNumber() {
 	}, [formData.phone, formData.password])
 
 	// Form Submit
-	const handlerSubmit = (e) => {
+	const handlerSubmit = async (e) => {
 		e.preventDefault();
-		dispatch(processLogin(formData));
-
+		
+		try {
+			const userData = await login(formData).unwrap();
+			dispatch(setCredentials({...userData, user: userData.user}));
+			// navigate('/user');
+		} catch (error) {
+			console.log('Toang meo chay r loi cc: ', error);
+		}
 	}
 
 	return (
